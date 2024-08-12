@@ -6,25 +6,24 @@ async function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function run() {
+async function run(pagina) {
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
-    const downloadPath = path.resolve(__dirname, 'downloads');
+    const downloadPath = path.resolve(__dirname, 'bases_pnp');
 
-    // Configura o diretório de download
+    // Configura o diretório para salvar os arquivos csv
     await page._client().send('Page.setDownloadBehavior', {
         behavior: 'allow',
         downloadPath: downloadPath
     });
 
-    // Ajusta o tempo limite e viewport
+    // Configuração da página (tempo para carregar a página e configuração do tamanho)
     await page.setDefaultTimeout(60000);
     await page.setViewport({ width: 1146, height: 911 });
 
-    console.log('Navegando para a página...');
     try {
-        await page.goto('https://moduloextratorpnp.mec.gov.br/pnpquery/1', { waitUntil: 'networkidle2' });
-        console.log('Página carregada com sucesso.');
+        await page.goto('https://moduloextratorpnp.mec.gov.br/pnpquery/'+pagina, { waitUntil: 'networkidle2' });
+        console.log('Página carregada');
     } catch (error) {
         console.error('Erro ao carregar a página:', error);
         await browser.close();
@@ -32,21 +31,20 @@ async function run() {
     }
 
     // Verifica se o botão está visível e clica nele
-    console.log('Esperando o botão aparecer...');
     try {
         await page.waitForSelector('div:nth-of-type(2) > br-button', { timeout: 10000 });
-        console.log('Botão encontrado. Clicando...');
+        //console.log('Botão encontrado.');
         await page.click('div:nth-of-type(2) > br-button', { offset: { x: 32.275, y: 8.275 } });
-        console.log('Clique realizado.');
+        //console.log('Clique realizado.');
     } catch (error) {
-        console.error('Erro ao encontrar ou clicar no botão:', error);
+        //console.error('Erro ao encontrar ou clicar no botão:', error);
         await browser.close();
         return;
     }
 
     // Espera adicional para garantir que o download ocorra
     console.log('Esperando o download...');
-    await sleep(2000); // 20 segundos
+    await sleep(60000); // 60 segundos
 
     await browser.close();
     console.log('Navegador fechado. Arquivo deve estar em:', downloadPath);
@@ -54,5 +52,7 @@ async function run() {
 
 // Verifica se o script está sendo executado diretamente pelo Node.js
 if (require.main === module) {
-    run();
+    for (i = 1; i <= 20; i++) {
+        run(i);
+    }
 }
