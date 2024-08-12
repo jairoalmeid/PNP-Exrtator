@@ -6,7 +6,13 @@ Extração de arquivo .csv da Plataforma Nilo Peçanha utilizando a ferramenta P
 Instalação do NodeJS - https://nodejs.org/pt
 
 *Instalação do Puppeteer*
-`npm install pupperteer`
+
+`npm install pupperteer` 
+
 `npm install @puppeteer/replay`
 
-Desenvolvido por *Jairo Almeida* (github.com/jairoalmeid)
+## Execução
+`node script-puppeteer.js`
+
+Desenvolvido por *Jairo Almeida* 
+(github.com/jairoalmeid)
