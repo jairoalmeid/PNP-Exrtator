@@ -1,18 +1,38 @@
-# PNP-Exrtator
-Extração de arquivo .csv da Plataforma Nilo Peçanha utilizando a ferramenta Puppeteer
+# PNP-Extrator
+
+PNP-Extrator é uma ferramenta automatizada para extração de arquivos .csv da [Plataforma Nilo Peçanha](http://plataformanilopecanha.mec.gov.br/) utilizando o **Puppeteer**, framework para controle de navegadores web via JavaScript.
 
 ## Requisitos
-*NodeJS*
-Instalação do NodeJS - https://nodejs.org/pt
 
-*Instalação do Puppeteer*
+### 1. Node.js
 
-`npm install pupperteer` 
+Para rodar o PNP-Extrator, é necessário ter o [Node.js](https://nodejs.org/pt) instalado em sua máquina. 
 
-`npm install @puppeteer/replay`
+### 2. Instalação das Dependências
+
+Instale as dependências necessárias executando os seguintes comandos no terminal:
+
+```bash
+npm install puppeteer
+npm install @puppeteer/replay
+```
 
 ## Execução
-`node script-puppeteer.js`
 
-Desenvolvido por *Jairo Almeida* 
-(github.com/jairoalmeid)
+Para executar o script de extração, use o comando abaixo:
+
+```bash
+node script-puppeteer.js
+```
+
+## Contribuição
+
+Sinta-se à vontade para contribuir com este projeto. 
+Se encontrar algum problema ou tiver sugestões de melhorias, abra uma *issue* ou envie um *pull request*.
+
+---
+
+Desenvolvido por **Jairo Almeida**  
+[github.com/jairoalmeid](https://github.com/jairoalmeid)
+
+---
