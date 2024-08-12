@@ -50,7 +50,7 @@ async function run(pagina) {
     console.log('Navegador fechado. Arquivo deve estar em:', downloadPath);
 }
 
-// Verifica se o script está sendo executado diretamente pelo Node.js
+// Executa o script nas 20 páginas do módulo extrator da PNP
 if (require.main === module) {
     for (i = 1; i <= 20; i++) {
         run(i);
