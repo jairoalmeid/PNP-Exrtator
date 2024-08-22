@@ -18,7 +18,7 @@ async function run(pagina) {
     });
 
     // Configuração da página (tempo para carregar a página e configuração do tamanho)
-    await page.setDefaultTimeout(60000);
+    await page.setDefaultTimeout(90000);
     await page.setViewport({ width: 1146, height: 911 });
 
     try {

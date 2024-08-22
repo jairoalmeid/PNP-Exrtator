@@ -22,7 +22,31 @@ npm install @puppeteer/replay
 Para executar o script de extração, use o comando abaixo:
 
 ```bash
-node script-puppeteer.js
+node get_PNP_Extrator.js
+```
+# PNP Microdados Matrículas
+A PNP Microdados é uma base de microdados por matrícula, possibilitando análises mais precisas e a correlação de mais informações.
+
+## Requisitos
+A aplicação roda em Python, utilizando os seguintes pacotes:
+
+### Instalação das Dependências
+
+**BeautifulSoup4**
+```bash
+pip install beautifulsoup4
+```
+
+**Requests**
+```bash
+pip install requests
+```
+
+### Executar
+Para fazer a extração, utilize o comando:
+
+```bash
+python .\get_PDA_PNP_Matriculas.py
 ```
 
 ## Contribuição
